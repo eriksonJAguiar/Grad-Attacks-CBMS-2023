@@ -10,7 +10,7 @@ Deep Learning (DL) incorporates a useful set of techniques and improves medical 
 
 **Proposal overview**
 
-![](worflow.pdf)
+[Workflow](./workflow.png)
 
 ## Usage
 
