@@ -5,10 +5,12 @@ Medical Images in Adversarial Settings**
 
 **Authors**: [Erikson J. de Aguiar](https://github.com/eriksonJAguiar), [Márcus V. L. Costa](https://github.com/usmarcv), Caetano Traina Jr. and Agma J. M. Traina
 
+**Abstract:**
+Deep Learning (DL) incorporates a useful set of techniques and improves medical diagnosis based on imaging exams, such as Chest X-rays (CXR) and optical coherence tomography (OCT). However, DL models can be biased, so explainability can help guide the decision-making process, including the well-known method Gradient-weighted Class Activation Mapping (GRAD-CAM). Moreover, DL models suffer from adversarial attacks (ADV) through creation of perturbed examples, which decrease the model’s confidence. In this paper, we evaluate DL vulnerabilities of DL applied to medical images and analyze the effects of attacks on GRAD-CAM heatmaps, aimed at verifying the strengths of attack. We evaluated our technique using ResNet50, VGG16, and InceptionV3 on CXR and OCT datasets. Our experiments evaluated the Fast Gradient Sign Method (FGSM), Projected Gradient Descent (PGD), and DeepFool, both on  clean and attacked datasets. We measured the Fooling Rate (FR), image degradation, and attack strengths, quantifying the influence of attacks in the model based on Grad-CAM analysis. The experiments showed that DeepFool presented the strongest FR, achieving up to 93% for CXR and 96% for OCT. However, PGD obtained the best malicious deeds for multi-class (OCT), whereas DeepFool was the most hurtful for binary class (CXR) when it evaluated image degradation and attack strengths. DeepFool produces a visual effect that is hard to notice on Grad-CAM, which is more suitable for attacker deeds. Our analysis can be used to understand ADV most likely to be used by an attacker over medical images and their effects on explainability.
+
 **Proposal overview**
 
-
-
+![](worflow.pdf)
 
 ## Usage
 
