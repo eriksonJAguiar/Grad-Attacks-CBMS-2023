@@ -11,21 +11,31 @@ The codes are splited into two directories, scripts_evaluate aim to evaluate ima
 ### 1. Requeriments
 
 - Python 3.8
-- Tensorflow 2
+- Tensorflow 2.10
 - adversarial-robustness-toolbox
 - numpy
 - Pandas
 
-### 2. Download the foolowing datasets
+### 2. Configure environment
 
-- Chest X-ray for PNEUMONIA: 
-- OCT: 
-
-  **2.1** Balance datasets
-  
+**2.1. Create environment using conda and set up tensorflow and python** 
 ```shell
-python3 
+  conda create -n cbms tensorflow=2.10 python=3.8
 ```
+```shell
+  conda activate cbms
+```
+
+**2.2. Install libraries**
+
+```shell
+  pip install -r requeriments.txt
+```
+
+### 2. Download the following datasets
+
+- Chest X-ray for PNEUMONIA: https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+- OCT: https://www.kaggle.com/datasets/paultimothymooney/kermany2018ls
 
 ### 3. Train models
 
@@ -36,6 +46,7 @@ python3
 ```shell
 python3 train_models.py --database_csv [database] --model_name [model name]
 ```
+p.s.: the database csv should be saved with name of respectively dataset, such as chest_xray.csv or OCT.csv
 
 ### 4. test models
 
