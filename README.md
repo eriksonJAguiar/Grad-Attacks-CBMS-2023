@@ -118,5 +118,3 @@ Measure NISSMI and MOD.
 ```python
 python3 measure_gradcam.py --database [database grad-cam]
 ```
-
-### 9. Results
