@@ -3,6 +3,10 @@
 This repository contains the code used in our study on **Evaluating Vulnerabilities of Deep Learning Explainability for
 Medical Images in Adversarial Settings**
 
+**Proposal overview**
+
+
+
 
 ## Usage
 
@@ -32,12 +36,12 @@ The codes are splited into two directories, scripts_evaluate aim to evaluate ima
   pip install -r requeriments.txt
 ```
 
-### 2. Download the following datasets
+### 3. Download the following datasets
 
 - Chest X-ray for PNEUMONIA: https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
 - OCT: https://www.kaggle.com/datasets/paultimothymooney/kermany2018ls
 
-### 3. Train models
+### 4. Train models
 
 **Parameters:** 
   - databaset_csv: chest_xray or OCT
@@ -48,35 +52,67 @@ python3 train_models.py --database_csv [database] --model_name [model name]
 ```
 p.s.: the database csv should be saved with name of respectively dataset, such as chest_xray.csv or OCT.csv
 
-### 4. test models
+### 5. test models
 
 test models to extract metrics in test phase, such as accuracy, AUC, and Fooling Rate
 
 **Parameters:** 
   - databaset_csv: chest_xray or OCT
   - model_name: inceptionv3, resnet, or vgg16
+  - eps: 0, 0.01, 0.05, 0.075, and 0.1
+  
+if eps is 0 images tested are clean, on the other hand, without attack.
 
-```shell
-python3 train_models.py --database_csv [database] --model_name [model name]
+```python
+python3 evaluate_attacked_images.py --database [database] --model_name [model name] --eps [noise level]
 ```
 
-### 5. Attack models on test phase
+### 6. Generate and save attacked images
 
-**5.1** Install the library to generate attacks
-- ```pip install adversarial-robustness-toolbox ```
+We used attacks FGSM, PGD, and DeepFool.
 
-**5.2** Generate attacks
+**Parameters:** 
+  - databaset_csv: chest_xray or OCT
+  - model_name: inceptionv3, resnet, or vgg16
+  - attack_name: fgsm, pgd, or deep
 
-Params:
+```python
+python3 generate_attacked_images.py --database_csv [database] --model_name [model name] --attack_name [attack name]
+```
 
-### 6. Generate grad-cam
+### 7. Generate grad-cam
 
+**Parameters:** 
+  - attack_db: path attacked
+  - original: path original
+  
+```python
+python3 gradcam_generate.py --attack_db [database attacked path] --original [database original path]
+```
 
+### 8. Evaluation
 
-### 7. Evaluation
+**8.1** Measure distortion
 
-**7.1** Measure distortion
+Measure PSRN and SSMI metrics
 
-**7.1** Measure attack strenghs
+**Parameters:** 
+  - database: database original path
+  - attack_path: database attacked path
+  - eps: noise level [0.01, 0.05, 0.075, and 0.1]
+  
+```python
+python3 measure_distortion.py --attack_db [database attacked path] --original [database original path]
+```
+**8.2** Measure attack strengths
 
-### 8. Results
+Measure NISSMI and MOD.
+
+**Parameters:** 
+  - database: grad-cam heatmaps path
+  
+```python
+python3 measure_gradcam.py --database [database grad-cam]
+```
+
+### 9. Results
