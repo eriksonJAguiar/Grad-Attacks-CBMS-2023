@@ -3,6 +3,8 @@
 This repository contains the code used in our study on **Evaluating Vulnerabilities of Deep Learning Explainability for
 Medical Images in Adversarial Settings**
 
+**Authors**: [Erikson J. de Aguiar](https://github.com/eriksonJAguiar), [Márcus V. L. Costa](https://github.com/usmarcv), Caetano Traina Jr. and Agma J. M. Traina
+
 **Proposal overview**
 
 
